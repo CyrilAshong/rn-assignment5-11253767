@@ -8,8 +8,9 @@ import theme from "../theme/theme";
 
 
 export default function Settings() {
-    const theme = useContext(themeContext)
-    const [darkMode, setDarkMode] = useState(false)
+    const {theme, setTheme} = useContext(themeContext)
+    const [darkMode, setDarkMode] = useState(theme === 'dark')
+
     return (
         <View style={[styles.Container1]}>
             <View style={styles.container}>
@@ -62,8 +63,9 @@ export default function Settings() {
                 <View style={styles.switchCont}>
                     <Switch value={darkMode} onChange={(value) => { 
                         setDarkMode(value); 
-                        EventRegister.emit('ChangeTheme', value)
-                     }} />
+                        setTheme(value ? 'dark' : 'light')
+                     }}
+                     />
                 </View>
             </View>
         </View>

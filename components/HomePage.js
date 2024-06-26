@@ -7,7 +7,8 @@ import { useContext } from "react";
 import themeContext from "../theme/themeContext";
 
 export default function HomePage() {
-    const theme = useContext(themeContext)
+    const {theme} = useContext(themeContext)
+    const darkMode = theme === 'dark'
     const Transaction = [
         { id: '1', field: 'Entertainment', organisation: 'Apple', amount: '- $5,99', color: 'black' },
         { id: '2', field: 'Music', organisation: 'Spotify', amount: '- $12,99' , color: 'black'},
